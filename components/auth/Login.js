@@ -1,115 +1,65 @@
-import * as React from 'react';
-import Avatar from '@mui/material/Avatar';
+import React from 'react'
+import styles from '@/styles/Login.module.css'
 import Button from '@mui/material/Button';
-import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
-import Link from '@mui/material/Link';
-import Grid from '@mui/material/Grid';
-import Box from '@mui/material/Box';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
-import {createTheme, ThemeProvider} from '@mui/material/styles';
+import Link from 'next/link';
 
-function Copyright(props) {
-    return (
-        <Typography variant="body2" color="text.secondary" align="center" {...props}>
-            {'Copyright © '}
-            <Link color="inherit" href="https://mui.com/">
-                Your Website
-            </Link>{' '}
-            {new Date().getFullYear()}
-            {'.'}
-        </Typography>
-    );
-}
+export default function Login() {
+  return (
+    <div className={styles.container}>
+            <h1 > 로그인</h1>
+            <div>
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              id=""
+              label="이메일"
+              name="userid"
+              autoComplete="userid"
+            />
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              name="password"
+              label="비밀번호"
+              type="password"
+              id="password"
+              autoComplete="current-password"
+            />
+            </div>
+            <div>
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              sx={{ mt: 3, mb: 1 }}
+            >
+              로그인
+            </Button>
+            </div>
+            <div>
+            <Link href='/auth/register' >
+                <h5 style={{ marginTop: "0.5rem",textAlign:"end",color:"#5e5ee6",cursor:"pointer" }}>
+						회원가입
+            </h5>
+            </Link>
+            <Link href="/auth/googleLogin">
+                <Button 
+                  fullWidth
+                  variant="contained"
+                  sx={{ mt: 0.5, mb: 0 }}
+                  >
+                  Google 로그인                  
+                </Button>
+            </Link>
+            </div>
+            <div>
+                <h5>계속 진행하면 patternBot의 서비스 약관 및 개인정보 보호정책에 동의한 것으로 간주됩니다.</h5>
+            </div>
 
-const theme = createTheme();
-
-export function Login({onChange, onSubmit}) {
-    return (
-        <ThemeProvider theme={theme}>
-            <Container component="main" maxWidth="xs">
-                <CssBaseline/>
-                <Box
-                    sx={{
-                        marginTop: 8,
-                        display: 'flex',
-                        flexDirection: 'column',
-                        alignItems: 'center'
-                    }}>
-                    <Avatar
-                        sx={{
-                            m: 1,
-                            bgcolor: 'secondary.main'
-                        }}>
-                        <LockOutlinedIcon/>
-                    </Avatar>
-                    <Typography component="h1" variant="h5">
-                        Sign in
-                    </Typography>
-                    <Box
-                        component="form"
-                        onSubmit={onSubmit}
-                        noValidate="noValidate"
-                        sx={{
-                            mt: 1
-                        }}>
-                        <TextField
-                            margin="normal"
-                            required
-                            fullWidth
-                            id="userid"
-                            label="사용자 아이디"
-                            name="userid"
-                            autoComplete="userid"
-                            autoFocus
-                            onChange={onChange}/>
-                        <TextField
-                            margin="normal"
-                            required
-                            fullWidth
-                            name="password"
-                            label="비밀번호"
-                            type="password"
-                            id="password"
-                            autoComplete="current-password"
-                            onChange={onChange}/>
-                        <FormControlLabel
-                            control={<Checkbox value = "remember" color = "primary" />}
-                            label="Remember me"/>
-                        <Button
-                            type="submit"
-                            fullWidth 
-                            variant="contained"
-                            sx={{
-                                mt: 3,
-                                mb: 2
-                            }}>
-                            Sign In
-                        </Button>
-                        <Grid container>
-                            <Grid item xs>
-                                <Link href="#" variant="body2">
-                                    Forgot password?
-                                </Link>
-                            </Grid>
-                            <Grid item>
-                                <Link href="/auth/register" variant="body2">
-                                    {"Don't have an account? Sign Up"}
-                                </Link>
-                            </Grid>
-                        </Grid>
-                    </Box>
-                </Box>
-                <Copyright
-                    sx={{
-                        mt: 8,
-                        mb: 4
-                    }}/>
-            </Container>
-        </ThemeProvider>
-    );
+        
+    </div>
+  )
 }

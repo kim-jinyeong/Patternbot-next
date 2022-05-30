@@ -1,11 +1,10 @@
-import { Layout, Home } from '@/components'
-import React, {useEffect} from 'react';
-import axios from "axios";
-import styles from '../styles/Home.module.css'
+import Layout from '@/components/Layout'
+import Home from '@/components/Home'
 
 export default function HomePage() {
-  
-return (
-    <Home/>
-)
+  return (
+    <div>
+      <Home />
+    </div>
+  )
 }

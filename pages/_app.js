@@ -1,19 +1,20 @@
+import Footer from '@/components/Footer'
+import Header from '@/components/Header'
+import Layout from '@/components/Layout'
+import Nav from '@/components/Nav'
 import '@/styles/globals.css'
-import { Nav, Header, Layout, Footer} from '@/components'
-import { wrapper } from '@/modules/store.js'
-import styles from "@/styles/Header.module.css";
 
-
-const App = ({ Component, pageProps }) => {
-  return (<div>
-    <Nav/>
-      <Header className={styles.header}/>
+function App({ Component, pageProps }) {
+  return (
+    <div>
+      <Header />
+      <Nav/>
       <Layout>
-        <Component {...pageProps} />
-      </Layout>
+          <Component {...pageProps} />
+      </Layout> 
       <Footer/>
-      </div>
-    )
+    </div>
+  )
 }
 
-export default wrapper.withRedux(App)
+export default App
